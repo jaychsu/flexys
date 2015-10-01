@@ -11,6 +11,7 @@
     "src/_flexys.scss"
   ],
   "ignore": [
+    "test",
     "**/.*",
     "**/*.md"
   ],
