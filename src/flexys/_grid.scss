@@ -1,0 +1,140 @@
+// Responsive: The following has:
+// 1. State
+// 2. Arrangement: Individual
+// 3. Alignment: Individual
+// =============================================
+// Overwrite Concept
+// ---------------------------------------------
+//   mobile  |  tablet  |  web  |  wide-screen
+// ---------------------------------------------
+//   <------------------------------------> md
+//                              |---------> lg
+//   <------------------|                   sm
+//   <-------|                              xs
+
+// Tools for make grid
+// --------------------------
+
+@mixin calc-grid($index, $class, $type) {
+  @if ($type == width) and ($index > 0) {
+    .fx-#{$class}-#{$index} {
+      @include flex-basis(percentage(($index / $grid-columns)));
+    }
+  } @else {
+    .fx-#{$class}-offset-#{$index} {
+      margin-left: percentage(($index / $grid-columns));
+    }
+  }
+}
+
+@mixin make-grid($columns, $class, $type) {
+  @for $i from 1 through $columns {
+    @include calc-grid($i, $class, $type);
+  }
+}
+
+@mixin control-individual-flexys($class, $type) {
+  @if $type == first {
+    .fx-#{$class}-#{$type} {
+      @include order(-1);
+    }
+  } @else if $type == last {
+    .fx-#{$class}-#{$type} {
+      @include order(1);
+    }
+  } @else if $type == top {
+    .fx-#{$class}-#{$type} {
+      @include align-self(flex-start);
+    }
+  } @else if $type == middle {
+    .fx-#{$class}-#{$type} {
+      @include align-self(center);
+    }
+  } @else if $type == bottom {
+    .fx-#{$class}-#{$type} {
+      @include align-self(flex-end);
+    }
+  } @else {
+    .fx-#{$class}-hide {
+      display: none;
+    }
+  }
+}
+
+
+// Responsive Container
+// --------------------------
+  .fx-container {
+    width: $container-width-md;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+// @media screen and (min-width: $screen-breakpoint-lg) {
+//   .fx-container {
+//     width: $container-width-lg;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }
+
+// @media screen and (min-width: $screen-breakpoint-sm) and (max-width: $screen-breakpoint-md) {
+//   .fx-container {
+//     width: $container-width-sm;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }
+
+// @media screen and (max-width: $screen-breakpoint-sm) {
+//   .fx-container {
+//     width: 100%;
+//     overflow-x: hidden;
+//   }
+// }
+
+
+// Medium grid: default state
+// --------------------------
+  @include make-grid($grid-columns, nth($responsive-list, 3), width);
+  @include make-grid($grid-columns, nth($responsive-list, 3), offset);
+
+  @each $control-state in $control-list {
+    @include control-individual-flexys(nth($responsive-list, 3), $control-state);
+  }
+
+
+// Large grid
+// --------------------------
+// @media screen and (min-width: $screen-breakpoint-lg) {
+//   @include make-grid($grid-columns, nth($responsive-list, 4), width);
+//   @include make-grid($grid-columns, nth($responsive-list, 4), offset);
+
+//   @each $control-state in $control-list {
+//     @include control-individual-flexys(nth($responsive-list, 4), $control-state);
+//   }
+// }
+
+
+// Small grid
+// --------------------------
+// @media screen and (max-width: $screen-breakpoint-md) {
+//   @include make-grid($grid-columns, nth($responsive-list, 2), width);
+//   @include make-grid($grid-columns, nth($responsive-list, 2), offset);
+
+//   @each $control-state in $control-list {
+//     @include control-individual-flexys(nth($responsive-list, 2), $control-state);
+//   }
+// }
+
+
+// Extra small grid
+// --------------------------
+// @media screen and (max-width: $screen-breakpoint-sm) {
+//   @include make-grid($grid-columns, nth($responsive-list, 1), width);
+//   @include make-grid($grid-columns, nth($responsive-list, 1), offset);
+
+//   @each $control-state in $control-list {
+//     @include control-individual-flexys(nth($responsive-list, 1), $control-state);
+//   }
+// }

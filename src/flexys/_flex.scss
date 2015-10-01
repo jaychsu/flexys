@@ -1,0 +1,96 @@
+// 1. Container Settings
+// =============================================
+.fx-row, .fx-column, .fx-grid {
+  @extend %box-sizing;
+  @include flexbox;
+  margin: ($grid-gutter-width / -2);
+
+  & > .fx-el {
+    @extend %box-sizing;
+    position: relative;
+    padding: $grid-gutter-width / 2;
+    @include order(0);
+  }
+}
+
+.fx-row {
+  @include flex-direction(row);
+  @include flex-wrap(nowrap);
+}
+
+.fx-column {
+  @include flex-direction(column);
+  @include flex-wrap(nowrap);
+}
+
+.fx-grid {
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+}
+
+.fx-fill > .fx-el {
+  @include flex(1, 1, auto);
+}
+
+.fx-gapless {
+  margin: 0;
+
+  & > .fx-el {
+    padding: 0;
+  }
+}
+
+// 2. Arrangement: reverse
+// =============================================
+.fx-row.rev {
+  @include flex-direction(row-reverse);
+}
+
+.fx-column.rev {
+  @include flex-direction(column-reverse);
+}
+
+.fx-grid.rev{
+  @include flex-direction(row-reverse);
+  @include flex-wrap(wrap-reverse);
+}
+
+// 3. Alignment: Horizontal
+// =============================================
+.fx-left {
+  @include justify-content(flex-start);
+}
+
+.fx-center {
+  @include justify-content(center);
+}
+
+.fx-right {
+  @include justify-content(flex-end);
+}
+
+.fx-between {
+  @include justify-content(space-between);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.fx-around {
+  @include justify-content(space-around);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// 4. Alignment: Vertical
+// =============================================
+.fx-top {
+  @include align-items(flex-start);
+}
+
+.fx-middle {
+  @include align-items(center);
+}
+
+.fx-bottom {
+  @include align-items(flex-end);
+}
