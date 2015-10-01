@@ -11,7 +11,8 @@
     "src/_flexys.scss"
   ],
   "ignore": [
-    "**/.*"
+    "**/.*",
+    "**/*.md"
   ],
   "dependencies": {},
   "devDependencies": {
