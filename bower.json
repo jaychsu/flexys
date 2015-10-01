@@ -14,10 +14,10 @@
     "**/.*",
     "**/*.md"
   ],
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "sass-flex-mixin": "~1.0.1"
   },
+  "devDependencies": {},
   "keywords": [
     "sass",
     "flexbox",
