@@ -1,5 +1,6 @@
 # Flexys
 A Light Grid System base on Flexbox, and compiled by Sass now.
+To Understand how to use Flexys, hit [Demo](http://jaychsu.github.io/flexys/).(completed soon)
 
 ## Quickstart
 
