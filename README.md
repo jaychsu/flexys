@@ -10,7 +10,7 @@ To Understand how to use Flexys, hit [Demo](http://jaychsu.github.io/flexys/).(c
     bower install --save flexys
     ```
 
-2. Import these files to your `main.scss`
+2. Import these files to your `main.scss`:
 
     ```
     @import "../bower_components/sass-flex-mixin/_flexbox.scss";
