@@ -1,10 +1,25 @@
-# flexys
-A light grid system base on Sass.
+# Flexys
+A Tiny Grid System base on Flexbox, and compled by Sass now.
 
-## Install
+## Quickstart
 
+1. Install with [Bower](http://bower.io/):
+
+    ```
+    bower install --save flexys
+    ```
+
+2. Import these files to your `main.scss`
+
+    ```
+    @import "../bower_components/sass-flex-mixin/ _flexbox.scss";
+    @import "../bower_components/flexys/src/_flexys.scss";
+    ```
 
 ## Development
-### Task: test
+To watch compiled `.css`, run commands as following:
 
-### Task: compile
+```
+cd test
+sass test.scss test.css
+```
