@@ -2,7 +2,7 @@
   "name": "flexys",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "A Tiny Grid System base on Flexbox.",
+  "description": "A Light Grid System base on Flexbox.",
   "homepage": "https://github.com/jaychsu/flexys",
   "authors": [
     "Jaych Su <jaychsu.tw@gmail.com>"
