@@ -1,2 +1,14 @@
-$responsive-list: 'xs', 'sm', 'md', 'lg';
-$control-list: 'hide', 'first', 'last', 'top', 'middle', 'bottom';
+// Global
+$global-prefix: 'fx' !default;
+
+// Container
+$screen-breakpoint-sm: 580px !default;
+$screen-breakpoint-md: 940px !default;
+$screen-breakpoint-lg: 1180px !default;
+$container-width-sm: 600px !default;
+$container-width-md: 960px !default;
+$container-width-lg: 1200px !default;
+
+// Grid
+$grid-columns:      12 !default;
+$grid-gutter-width: 20px !default;

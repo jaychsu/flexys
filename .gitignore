@@ -4,3 +4,4 @@ bower_components/
 # Compiled file
 **/.sass-cache
 test/**/*.css
+test/**/*.map

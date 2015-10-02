@@ -1,11 +1,11 @@
 // 1. Container Settings
 // =============================================
-.fx-row, .fx-column, .fx-grid {
+.#{$global-prefix}-row, .#{$global-prefix}-column, .#{$global-prefix}-grid {
   @extend %box-sizing;
   @include flexbox;
   margin: ($grid-gutter-width / -2);
 
-  & > .fx-el {
+  & > .#{$global-prefix}-el {
     @extend %box-sizing;
     position: relative;
     padding: $grid-gutter-width / 2;
@@ -13,69 +13,69 @@
   }
 }
 
-.fx-row {
+.#{$global-prefix}-row {
   @include flex-direction(row);
   @include flex-wrap(nowrap);
 }
 
-.fx-column {
+.#{$global-prefix}-column {
   @include flex-direction(column);
   @include flex-wrap(nowrap);
 }
 
-.fx-grid {
+.#{$global-prefix}-grid {
   @include flex-direction(row);
   @include flex-wrap(wrap);
 }
 
-.fx-fill > .fx-el {
+.#{$global-prefix}-fill > .#{$global-prefix}-el {
   @include flex(1, 1, auto);
 }
 
-.fx-gapless {
+.#{$global-prefix}-gapless {
   margin: 0;
 
-  & > .fx-el {
+  & > .#{$global-prefix}-el {
     padding: 0;
   }
 }
 
 // 2. Arrangement: reverse
 // =============================================
-.fx-row.rev {
+.#{$global-prefix}-row.rev {
   @include flex-direction(row-reverse);
 }
 
-.fx-column.rev {
+.#{$global-prefix}-column.rev {
   @include flex-direction(column-reverse);
 }
 
-.fx-grid.rev{
+.#{$global-prefix}-grid.rev{
   @include flex-direction(row-reverse);
   @include flex-wrap(wrap-reverse);
 }
 
 // 3. Alignment: Horizontal
 // =============================================
-.fx-left {
+.#{$global-prefix}-left {
   @include justify-content(flex-start);
 }
 
-.fx-center {
+.#{$global-prefix}-center {
   @include justify-content(center);
 }
 
-.fx-right {
+.#{$global-prefix}-right {
   @include justify-content(flex-end);
 }
 
-.fx-between {
+.#{$global-prefix}-between {
   @include justify-content(space-between);
   margin-left: 0;
   margin-right: 0;
 }
 
-.fx-around {
+.#{$global-prefix}-around {
   @include justify-content(space-around);
   margin-left: 0;
   margin-right: 0;
@@ -83,14 +83,14 @@
 
 // 4. Alignment: Vertical
 // =============================================
-.fx-top {
+.#{$global-prefix}-top {
   @include align-items(flex-start);
 }
 
-.fx-middle {
+.#{$global-prefix}-middle {
   @include align-items(center);
 }
 
-.fx-bottom {
+.#{$global-prefix}-bottom {
   @include align-items(flex-end);
 }
