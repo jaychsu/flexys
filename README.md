@@ -1,6 +1,6 @@
 # Flexys
 A Light Grid System base on Flexbox, and compiled by Sass now.
-To Understand how to use Flexys, hit [Demo](http://jaychsu.github.io/flexys/).(completed soon)
+To understand how to use Flexys, hit [Demo](http://jaychsu.github.io/flexys/). (will be completed soon)
 
 ## Quickstart
 
@@ -17,8 +17,11 @@ To Understand how to use Flexys, hit [Demo](http://jaychsu.github.io/flexys/).(c
     @import "../bower_components/flexys/src/_flexys.scss";
     ```
 
+## Override
+Set variables to override origin one in `src/flexys/_variables.scss`.
+
 ## Development
-To watch compiled `.css`, run commands as following:
+To watch compiled `.css` files, run commands as following:
 
 ```
 cd test
