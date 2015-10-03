@@ -1,14 +1,15 @@
 // Global
 $global-prefix: 'fx' !default;
 
-// Container
-$breakpoint-sm:      600px !default;
-$breakpoint-md:      960px !default;
-$breakpoint-lg:      1200px !default;
-$container-width-sm: 580px !default;
-$container-width-md: 940px !default;
-$container-width-lg: 1180px !default;
-
 // Grid
+$unit-size:         10px !default;
+$grid-gutter-width: $unit-size * 2 !default;
 $grid-columns:      12 !default;
-$grid-gutter-width: 20px !default;
+
+// Container
+$container-width-sm: 30px * $grid-columns + $grid-gutter-width * ($grid-columns - 1) !default;
+$container-width-md: 60px * $grid-columns + $grid-gutter-width * ($grid-columns - 1) !default;
+$container-width-lg: 80px * $grid-columns + $grid-gutter-width * ($grid-columns - 1) !default;
+$breakpoint-sm:      $container-width-sm + $grid-gutter-width !default;
+$breakpoint-md:      $container-width-md + $grid-gutter-width !default;
+$breakpoint-lg:      $container-width-lg + $grid-gutter-width !default;
