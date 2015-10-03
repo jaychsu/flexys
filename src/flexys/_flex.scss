@@ -1,13 +1,15 @@
-// 1. Container Settings
+// 1. Container Base
 // =============================================
-.#{$global-prefix}-row, .#{$global-prefix}-column, .#{$global-prefix}-grid {
+.#{$global-prefix}-row,
+.#{$global-prefix}-column,
+.#{$global-prefix}-grid {
   @extend %box-sizing;
+  position: relative;
   @include flexbox;
   margin: ($grid-gutter-width / -2);
 
-  & > .#{$global-prefix}-el {
+  & > * {
     @extend %box-sizing;
-    position: relative;
     padding: $grid-gutter-width / 2;
     @include order(0);
   }
@@ -16,81 +18,88 @@
 .#{$global-prefix}-row {
   @include flex-direction(row);
   @include flex-wrap(nowrap);
+
+  &.rev {
+    @include flex-direction(row-reverse);
+  }
 }
 
 .#{$global-prefix}-column {
   @include flex-direction(column);
   @include flex-wrap(nowrap);
+
+  &.rev {
+    @include flex-direction(column-reverse);
+  }
 }
 
 .#{$global-prefix}-grid {
   @include flex-direction(row);
   @include flex-wrap(wrap);
+
+  &.rev {
+    @include flex-direction(row-reverse);
+    @include flex-wrap(wrap-reverse);
+  }
 }
 
-.#{$global-prefix}-fill > .#{$global-prefix}-el {
+.#{$global-prefix}-fill > * {
   @include flex(1, 1, auto);
 }
 
 .#{$global-prefix}-gapless {
   margin: 0;
 
-  & > .#{$global-prefix}-el {
+  & > * {
     padding: 0;
   }
 }
 
-// 2. Arrangement: reverse
+
+// 2. Alignment
 // =============================================
-.#{$global-prefix}-row.rev {
-  @include flex-direction(row-reverse);
+$main-axis-classes: 'start', 'center', 'end', 'between', 'around';
+$cross-axis-classes: 'start', 'center', 'end', 'stretch';
+
+@mixin join-alignment-property($main-axis-class, $cross-axis-class) {
+  $main-axis-start:   nth($main-axis-classes, 1);
+  $main-axis-center:  nth($main-axis-classes, 2);
+  $main-axis-end:     nth($main-axis-classes, 3);
+  $main-axis-between: nth($main-axis-classes, 4);
+  $main-axis-around:  nth($main-axis-classes, 5);
+
+  @if $main-axis-class == $main-axis-center {
+    @include justify-content(center);
+  } @else if $main-axis-class == $main-axis-end {
+    @include justify-content(flex-end);
+  } @else if $main-axis-class == $main-axis-between {
+    @include justify-content(space-between);
+  } @else if $main-axis-class == $main-axis-around {
+    @include justify-content(space-around);
+  } @else {
+    @include justify-content(flex-start);
+  }
+
+  $cross-axis-start:   nth($cross-axis-classes, 1);
+  $cross-axis-center:  nth($cross-axis-classes, 2);
+  $cross-axis-end:     nth($cross-axis-classes, 3);
+  $cross-axis-stretch: nth($cross-axis-classes, 4);
+
+  @if $cross-axis-class == $cross-axis-center {
+    @include align-items(center);
+  } @else if $cross-axis-class == $cross-axis-end {
+    @include align-items(flex-end);
+  } @else if $cross-axis-class == $cross-axis-stretch {
+    @include align-items(stretch);
+  } @else {
+    @include align-items(flex-start);
+  }
 }
 
-.#{$global-prefix}-column.rev {
-  @include flex-direction(column-reverse);
-}
-
-.#{$global-prefix}-grid.rev{
-  @include flex-direction(row-reverse);
-  @include flex-wrap(wrap-reverse);
-}
-
-// 3. Alignment: Horizontal
-// =============================================
-.#{$global-prefix}-left {
-  @include justify-content(flex-start);
-}
-
-.#{$global-prefix}-center {
-  @include justify-content(center);
-}
-
-.#{$global-prefix}-right {
-  @include justify-content(flex-end);
-}
-
-.#{$global-prefix}-between {
-  @include justify-content(space-between);
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.#{$global-prefix}-around {
-  @include justify-content(space-around);
-  margin-left: 0;
-  margin-right: 0;
-}
-
-// 4. Alignment: Vertical
-// =============================================
-.#{$global-prefix}-top {
-  @include align-items(flex-start);
-}
-
-.#{$global-prefix}-middle {
-  @include align-items(center);
-}
-
-.#{$global-prefix}-bottom {
-  @include align-items(flex-end);
+@each $main-axis-class in $main-axis-classes {
+  @each $cross-axis-class in $cross-axis-classes {
+    .#{$global-prefix}-#{$main-axis-class}-#{$cross-axis-class} {
+      @include join-alignment-property($main-axis-class, $cross-axis-class);
+    }
+  }
 }
