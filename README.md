@@ -2,6 +2,19 @@
 A Light Grid System base on Flexbox, and compiled by Sass now.
 To understand how to use Flexys, hit [Demo](http://jaychsu.github.io/flexys/). (will be completed soon)
 
+## Browser Support
+
+|  Browser    | Version |
+| ----------- | ------- |
+|  IE         |    10+  |
+|  Chrome     |     1+  |
+|  Firefox    |     2+  |
+|  Safari     |   3.1+  |
+|  Opera      |  12.1+  |
+|  Android    |   2.1+  |
+|  iOS        |   3.2+  |
+|  BlackBerry |    10+  |
+
 ## Quickstart
 
 1. Install with [Bower](http://bower.io/):
