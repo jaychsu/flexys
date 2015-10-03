@@ -4,10 +4,10 @@
 // ---------------------------------------------
 //   <------------------------------------> md{{no prefix}}
 //                              |---------> lg
-//   <------------------|                   sm
+//           |<-------->|                   sm
 //   <-------|                              xs
 // =============================================
-$responsive-classes: 'xs', 'sm', '', 'lg';
+$responsive-classes: 'xs', 'sm', 'md', 'lg';
 $responsive-xs:      nth($responsive-classes, 1);
 $responsive-sm:      nth($responsive-classes, 2);
 $responsive-md:      nth($responsive-classes, 3);
@@ -26,7 +26,7 @@ $type-end:    nth($type-list, 8);
 @mixin gen-grid-classes($class, $columns:$grid-columns) {
   $prefix: $global-prefix + '-' + $class;
 
-  @if $class == '' {
+  @if $class == $responsive-md {
     $prefix: $global-prefix;
   }
 
@@ -88,7 +88,8 @@ $type-end:    nth($type-list, 8);
 
 // (lg)Large grid
 // =============================================
-@media screen and (min-width: $breakpoint-lg) {
+@media screen
+ and (min-width: $breakpoint-lg) {
   .#{$global-prefix}-container {
     width: $container-width-lg;
   }
@@ -96,10 +97,11 @@ $type-end:    nth($type-list, 8);
 }
 
 
-
 // (sm)Small grid
 // =============================================
-@media screen and (max-width: $breakpoint-md) {
+@media screen
+ and (min-width: $breakpoint-sm)
+ and (max-width: $breakpoint-md - 1) {
   .#{$global-prefix}-container {
     width: $container-width-sm;
   }
@@ -109,9 +111,12 @@ $type-end:    nth($type-list, 8);
 
 // (xs)Extra small grid
 // =============================================
-@media screen and (max-width: $breakpoint-sm) {
+@media screen
+ and (max-width: $breakpoint-sm - 1) {
   .#{$global-prefix}-container {
     width: 100%;
+    padding-left: $unit-size;
+    padding-right: $unit-size;
     overflow-x: hidden;
   }
   @include gen-grid-classes($responsive-xs);
