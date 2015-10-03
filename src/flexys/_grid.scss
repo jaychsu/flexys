@@ -23,7 +23,7 @@ $type-start:  nth($type-list, 6);
 $type-center: nth($type-list, 7);
 $type-end:    nth($type-list, 8);
 
-@mixin gen-grid-classes($class, $columns:$grid-columns) {
+@mixin make-grid-classes($class, $columns:$grid-columns) {
   $prefix: $global-prefix + '-' + $class;
 
   @if $class == $responsive-md {
@@ -42,34 +42,36 @@ $type-end:    nth($type-list, 8);
       margin-left: percentage($i / $columns);
     }
   }
+}
 
+@mixin make-state-classes($class) {
   // $type == $type-hide
-  .#{$prefix}-#{$type-hide} {
+  .#{$global-prefix}-#{$class}-#{$type-hide} {
     display: none;
   }
 
   // $type == $type-first
-  .#{$prefix}-#{$type-first} {
+  .#{$global-prefix}-#{$class}-#{$type-first} {
     @include order(-1);
   }
 
   // $type == $type-last
-  .#{$prefix}-#{$type-last} {
+  .#{$global-prefix}-#{$class}-#{$type-last} {
     @include order(1);
   }
 
   // $type == $type-start
-  .#{$prefix}-#{$type-start} {
+  .#{$global-prefix}-#{$class}-#{$type-start} {
     @include align-self(flex-start);
   }
 
   // $type == $type-center
-  .#{$prefix}-#{$type-center} {
+  .#{$global-prefix}-#{$class}-#{$type-center} {
     @include align-self(center);
   }
 
   // $type == $type-end
-  .#{$prefix}-#{$type-end} {
+  .#{$global-prefix}-#{$class}-#{$type-end} {
     @include align-self(flex-end);
   }
 }
@@ -82,8 +84,13 @@ $type-end:    nth($type-list, 8);
     margin-left: auto;
     margin-right: auto;
   }
-  @include gen-grid-classes($responsive-md);
+  @include make-grid-classes($responsive-md);
 
+@media screen
+ and (min-width: $breakpoint-md)
+ and (max-width: $breakpoint-lg - 1) {
+  @include make-state-classes($responsive-md);
+}
 
 
 // (lg)Large grid
@@ -93,7 +100,8 @@ $type-end:    nth($type-list, 8);
   .#{$global-prefix}-container {
     width: $container-width-lg;
   }
-  @include gen-grid-classes($responsive-lg);
+  @include make-grid-classes($responsive-lg);
+  @include make-state-classes($responsive-lg);
 }
 
 
@@ -105,7 +113,8 @@ $type-end:    nth($type-list, 8);
   .#{$global-prefix}-container {
     width: $container-width-sm;
   }
-  @include gen-grid-classes($responsive-sm);
+  @include make-grid-classes($responsive-sm);
+  @include make-state-classes($responsive-sm);
 }
 
 
@@ -119,5 +128,6 @@ $type-end:    nth($type-list, 8);
     padding-right: $unit-size;
     overflow-x: hidden;
   }
-  @include gen-grid-classes($responsive-xs);
+  @include make-grid-classes($responsive-xs);
+  @include make-state-classes($responsive-xs);
 }
