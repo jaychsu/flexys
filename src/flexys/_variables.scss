@@ -2,12 +2,12 @@
 $global-prefix: 'fx' !default;
 
 // Container
-$screen-breakpoint-sm: 580px !default;
-$screen-breakpoint-md: 940px !default;
-$screen-breakpoint-lg: 1180px !default;
-$container-width-sm: 600px !default;
-$container-width-md: 960px !default;
-$container-width-lg: 1200px !default;
+$breakpoint-sm:      600px !default;
+$breakpoint-md:      960px !default;
+$breakpoint-lg:      1200px !default;
+$container-width-sm: 580px !default;
+$container-width-md: 940px !default;
+$container-width-lg: 1180px !default;
 
 // Grid
 $grid-columns:      12 !default;

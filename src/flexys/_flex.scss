@@ -58,16 +58,20 @@
 
 // 2. Alignment
 // =============================================
-$main-axis-classes: 'start', 'center', 'end', 'between', 'around';
+$main-axis-classes:  'start', 'center', 'end', 'between', 'around';
+$main-axis-start:    nth($main-axis-classes, 1);
+$main-axis-center:   nth($main-axis-classes, 2);
+$main-axis-end:      nth($main-axis-classes, 3);
+$main-axis-between:  nth($main-axis-classes, 4);
+$main-axis-around:   nth($main-axis-classes, 5);
+
 $cross-axis-classes: 'start', 'center', 'end', 'stretch';
+$cross-axis-start:   nth($cross-axis-classes, 1);
+$cross-axis-center:  nth($cross-axis-classes, 2);
+$cross-axis-end:     nth($cross-axis-classes, 3);
+$cross-axis-stretch: nth($cross-axis-classes, 4);
 
 @mixin join-alignment-property($main-axis-class, $cross-axis-class) {
-  $main-axis-start:   nth($main-axis-classes, 1);
-  $main-axis-center:  nth($main-axis-classes, 2);
-  $main-axis-end:     nth($main-axis-classes, 3);
-  $main-axis-between: nth($main-axis-classes, 4);
-  $main-axis-around:  nth($main-axis-classes, 5);
-
   @if $main-axis-class == $main-axis-center {
     @include justify-content(center);
   } @else if $main-axis-class == $main-axis-end {
@@ -79,11 +83,6 @@ $cross-axis-classes: 'start', 'center', 'end', 'stretch';
   } @else {
     @include justify-content(flex-start);
   }
-
-  $cross-axis-start:   nth($cross-axis-classes, 1);
-  $cross-axis-center:  nth($cross-axis-classes, 2);
-  $cross-axis-end:     nth($cross-axis-classes, 3);
-  $cross-axis-stretch: nth($cross-axis-classes, 4);
 
   @if $cross-axis-class == $cross-axis-center {
     @include align-items(center);
