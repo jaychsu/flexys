@@ -1,0 +1,33 @@
+{
+  "name": "flexys",
+  "version": "1.0.0",
+  "description": "A Light Grid System base on Flexbox.",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaychsu/flexys.git"
+  },
+  "keywords": [
+    "sass",
+    "flexbox",
+    "grid"
+  ],
+  "author": "Jaych Su",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaychsu/flexys/issues"
+  },
+  "homepage": "https://github.com/jaychsu/flexys"
+}

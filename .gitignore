@@ -1,7 +1,8 @@
 # Dependencies
 bower_components/
+node_modules/
 
 # Compiled file
 **/.sass-cache
-test/**/*.css
-test/**/*.map
+**/*.map
+dist/
