@@ -6,7 +6,6 @@
   var minifyCss = require('gulp-minify-css');
   var rename = require('gulp-rename');
   var clean = require('gulp-clean');
-  var livereload = require('gulp-livereload');
 
   var paths = {
     src  : './src/',
@@ -21,6 +20,10 @@
   };
 
   var configs = {
+    server : {
+      host : 'localhost',
+      port : 9000
+    },
     sass   : {},
     rename : { suffix: '.min' },
     clean  : { read: false }
@@ -57,16 +60,8 @@
       .pipe(gulp.dest(paths.demo.styles));
   });
 
-  gulp.task('serve', function () {
+  gulp.task('watch', function () {
     gulp.watch(paths.demo.sass + '**/*.scss', ['demo:styles']);
-
-    livereload.listen();
-
-    gulp.watch([
-      paths.demo.styles + '**',
-      paths.demo.scripts + '**',
-      paths.dist
-    ]).on('change', livereload.changed);
   });
 
 })();
