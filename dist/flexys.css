@@ -628,7 +628,7 @@
     -ms-flex-item-align: end;
     align-self: flex-end; } }
 
-@media screen and (min-width: 600px) and (max-width: 959px) {
+@media screen and (max-width: 959px) {
   .fx-container {
     width: 580px; }
   .fx-sm-1 {

@@ -2,9 +2,9 @@
 // =============================================
 //   mobile  |  tablet  |  web  |  wide-screen
 // ---------------------------------------------
-//   <------------------------------------> md{{no prefix}}
+//   <------------------------------------> md {{no prefix}}
 //                              |---------> lg
-//           |<-------->|                   sm
+//   <----------------->|                   sm
 //   <-------|                              xs
 // =============================================
 $responsive-classes: 'xs', 'sm', 'md', 'lg';
@@ -108,7 +108,6 @@ $type-end:    nth($type-list, 8);
 // (sm)Small grid
 // =============================================
 @media screen
- and (min-width: $breakpoint-sm)
  and (max-width: $breakpoint-md - 1) {
   .#{$global-prefix}-container {
     width: $container-width-sm;
