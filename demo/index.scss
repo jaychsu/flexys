@@ -1,1 +1,6 @@
-body {}
+// Sass Configs
+@import "components/sass_configs/_variables.scss";
+@import "components/sass_configs/_mixins.scss";
+
+// Views
+@import "views/_index.layout.scss";

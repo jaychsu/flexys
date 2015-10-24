@@ -1,0 +1,72 @@
+body {
+  background-color: $background-color1;
+  font-family: 'Avenir Next', Arial;
+  font-size: 100%;
+}
+
+// Specify size
+.page {
+  height: 100vh;
+  min-height: 600px;
+
+  &.landing {
+    .landing-top { height: 60%; }
+    .landing-mid { height: 25%; }
+    .landing-btm { height: 15%; }
+  }
+
+  &.preview .preview-wrap { height: 100%; }
+}
+
+// Specify border
+.border {
+  $layout-border-width: 1px;
+
+  position: relative;
+  @include square(100%);
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    background-color: $border-color1;
+  }
+
+  &:before {
+    width: $layout-border-width;
+    height: 100%;
+    top: 0;
+  }
+
+  &:after {
+    width: 100%;
+    height: $layout-border-width;
+    left: 0;
+  }
+
+
+  &.border-rb {
+    &:before { right: 0; }
+    &:after { bottom: 0; }
+
+    &.border-shift {
+      &:before { right: -$layout-border-width; }
+      &:after { bottom: -$layout-border-width; }
+    }
+  }
+
+  &.border-lt {
+    &:before { left: 0; }
+    &:after { top: 0; }
+
+    &.border-shift {
+      &:before { left: -$layout-border-width; }
+      &:after { top: -$layout-border-width; }
+    }
+  }
+
+  &.border-l {
+    &:before { left: 0; }
+    &:after { content: none; }
+  }
+}

@@ -1,0 +1,54 @@
+body {
+  background-color: #333;
+  font-family: 'Avenir Next', Arial;
+  font-size: 100%; }
+
+.page {
+  height: 100vh;
+  min-height: 600px; }
+  .page.landing .landing-top {
+    height: 60%; }
+  .page.landing .landing-mid {
+    height: 25%; }
+  .page.landing .landing-btm {
+    height: 15%; }
+  .page.preview .preview-wrap {
+    height: 100%; }
+
+.border {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+  .border:before,
+  .border:after {
+    content: '';
+    position: absolute;
+    background-color: #ddd; }
+  .border:before {
+    width: 1px;
+    height: 100%;
+    top: 0; }
+  .border:after {
+    width: 100%;
+    height: 1px;
+    left: 0; }
+  .border.border-rb:before {
+    right: 0; }
+  .border.border-rb:after {
+    bottom: 0; }
+  .border.border-rb.border-shift:before {
+    right: -1px; }
+  .border.border-rb.border-shift:after {
+    bottom: -1px; }
+  .border.border-lt:before {
+    left: 0; }
+  .border.border-lt:after {
+    top: 0; }
+  .border.border-lt.border-shift:before {
+    left: -1px; }
+  .border.border-lt.border-shift:after {
+    top: -1px; }
+  .border.border-l:before {
+    left: 0; }
+  .border.border-l:after {
+    content: none; }
