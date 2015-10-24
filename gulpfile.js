@@ -14,12 +14,10 @@
     src  : './src/',
     dist : './dist/',
     demo : {
-      root    : './demo/',
-      flexys  : './demo/flexys/',
-      sass    : './demo/sass/',
-      styles  : './demo/styles/',
-      scripts : './demo/scripts/',
-      html    : './index.html'
+      root       : './demo/',
+      components : './demo/components/',
+      compiled   : './demo/.compiled/',
+      html       : './index.html'
     }
   };
 
@@ -46,7 +44,7 @@
   });
 
   gulp.task('release', ['clean:dist'], function () {
-    gulp.src(paths.demo.flexys + 'flexys.scss')
+    gulp.src(paths.src + '_flexysWithDep.scss')
       .pipe(sass(configs.sass).on('error', sass.logError))
       .pipe(gulp.dest(paths.dist))
       .pipe(rename(configs.rename))
@@ -58,8 +56,8 @@
   /**
    * Task group to develop demo pages
    */
-  gulp.task('clean:styles', function () {
-    gulp.src(paths.demo.styles, configs.clean)
+  gulp.task('clean:compiled', function () {
+    gulp.src(paths.demo.compiled, configs.clean)
       .pipe(clean());
   });
 
@@ -69,15 +67,21 @@
   });
 
   gulp.task('demo:scripts', function () {
-    gulp.src(paths.demo.scripts + '**/*.js')
+    gulp.src([
+      paths.demo.root + '**/*.js',
+      '!'+paths.demo.compiled
+    ])
       .pipe(browserSync.stream());
   });
 
-  gulp.task('demo:styles', ['clean:styles'], function () {
-    gulp.src(paths.demo.sass + '**/*.scss')
+  gulp.task('demo:styles', ['clean:compiled'], function () {
+    gulp.src([
+      paths.demo.root + '**/*.scss',
+      '!'+paths.demo.compiled
+    ])
       .pipe(sass(configs.sass).on('error', sass.logError))
       .pipe(autoprefixer())
-      .pipe(gulp.dest(paths.demo.styles))
+      .pipe(gulp.dest(paths.demo.compiled))
       .pipe(browserSync.stream());
   });
 
@@ -85,10 +89,18 @@
     browserSync.init(configs.browserSync);
 
     gulp.watch(paths.demo.html, ['demo:html']);
-    gulp.watch(paths.demo.scripts + '**/*.js', ['demo:scripts']);
-    gulp.watch(paths.demo.sass + '**/*.scss', ['demo:styles']);
+
+    gulp.watch([
+      paths.demo.root + '**/*.js',
+      '!'+paths.demo.compiled
+    ], ['demo:scripts']);
+
+    gulp.watch([
+      paths.demo.root + '**/*.scss',
+      '!'+paths.demo.compiled
+    ], ['demo:styles']);
   });
 
-  gulp.task('default', ['serve']);
+  gulp.task('default', ['release']);
 
 })();

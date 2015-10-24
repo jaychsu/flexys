@@ -11,9 +11,13 @@
     "src/_flexys.scss"
   ],
   "ignore": [
-    "test",
+    "demo/",
     "**/.*",
-    "**/*.md"
+    "**/*.md",
+    "*.json",
+    "src/_flexysWithDep.scss",
+    "gulpfile.js",
+    "index.html"
   ],
   "dependencies": {
     "sass-flex-mixin": "~1.0.1"
