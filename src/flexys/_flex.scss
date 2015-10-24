@@ -11,7 +11,20 @@
   & > * {
     @extend %box-sizing;
     padding: $unit-size;
+    @include flex(1, 1, auto);
     @include order(0);
+  }
+
+  &.#{$global-prefix}-fill > * {
+    @include flex-grow(1);
+  }
+
+  &.#{$global-prefix}-gapless {
+    margin: 0;
+
+    & > * {
+      padding: 0;
+    }
   }
 }
 
@@ -40,18 +53,6 @@
   &.rev {
     @include flex-direction(row-reverse);
     @include flex-wrap(wrap-reverse);
-  }
-}
-
-.#{$global-prefix}-fill > * {
-  @include flex(1, 1, auto);
-}
-
-.#{$global-prefix}-gapless {
-  margin: 0;
-
-  & > * {
-    padding: 0;
   }
 }
 

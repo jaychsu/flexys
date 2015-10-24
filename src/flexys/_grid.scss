@@ -33,6 +33,7 @@ $type-end:    nth($type-list, 8);
   @for $i from 1 through $columns {
     // $type == $type-width
     .#{$prefix}-#{$i} {
+      @include flex-grow(0);
       width: percentage($i / $columns);
       @include flex-basis(percentage($i / $columns));
     }
