@@ -16,7 +16,7 @@
     demo : {
       root       : './demo/',
       components : './demo/components/',
-      compiled   : './demo/.compiled/',
+      compiled   : './demo/compiled/',
       index      : './index.html'
     }
   };
