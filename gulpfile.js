@@ -44,7 +44,7 @@
   });
 
   gulp.task('release', ['clean:dist'], function () {
-    gulp.src(paths.src + '_flexysWithDep.scss')
+    gulp.src(paths.src + 'flexys.scss')
       .pipe(sass(configs.sass).on('error', sass.logError))
       .pipe(gulp.dest(paths.dist))
       .pipe(rename(configs.rename))

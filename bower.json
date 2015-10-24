@@ -15,7 +15,7 @@
     "**/.*",
     "**/*.md",
     "*.json",
-    "src/_flexysWithDep.scss",
+    "src/flexys.scss",
     "gulpfile.js",
     "index.html"
   ],
