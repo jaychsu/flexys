@@ -17,7 +17,7 @@
       root       : './demo/',
       components : './demo/components/',
       compiled   : './demo/.compiled/',
-      html       : './index.html'
+      index      : './index.html'
     }
   };
 
@@ -62,14 +62,14 @@
   });
 
   gulp.task('demo:html', function () {
-    gulp.src(paths.demo.html)
+    gulp.src(paths.demo.index)
       .pipe(browserSync.stream());
   });
 
   gulp.task('demo:scripts', function () {
     gulp.src([
       paths.demo.root + '**/*.js',
-      '!'+paths.demo.compiled
+      '!' + paths.demo.compiled
     ])
       .pipe(browserSync.stream());
   });
@@ -77,7 +77,7 @@
   gulp.task('demo:styles', ['clean:compiled'], function () {
     gulp.src([
       paths.demo.root + '**/*.scss',
-      '!'+paths.demo.compiled
+      '!' + paths.demo.compiled
     ])
       .pipe(sass(configs.sass).on('error', sass.logError))
       .pipe(autoprefixer())
@@ -88,16 +88,16 @@
   gulp.task('serve', function () {
     browserSync.init(configs.browserSync);
 
-    gulp.watch(paths.demo.html, ['demo:html']);
+    gulp.watch(paths.demo.index, ['demo:html']);
 
     gulp.watch([
       paths.demo.root + '**/*.js',
-      '!'+paths.demo.compiled
+      '!' + paths.demo.compiled
     ], ['demo:scripts']);
 
     gulp.watch([
       paths.demo.root + '**/*.scss',
-      '!'+paths.demo.compiled
+      '!' + paths.demo.compiled
     ], ['demo:styles']);
   });
 
