@@ -1,5 +1,10 @@
-.bg-black {
-  background-color: rgba(0, 0, 0, 0.5); }
+.bg-frosted-glass {
+  background-image: url(../assets/patterns/frosted_glass.png);
+  background-repeat: repeat; }
+
+.bg-line {
+  background-image: url(../assets/patterns/line.jpg);
+  background-repeat: repeat; }
 
 body {
   background-color: #333;
