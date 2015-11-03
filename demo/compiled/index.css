@@ -7,7 +7,7 @@
   background-repeat: repeat; }
 
 body {
-  background-color: #333;
+  background-color: #403C34;
   font-family: 'Avenir Next', Arial;
   font-size: 100%; }
 
@@ -31,7 +31,7 @@ body {
   .border:after {
     content: '';
     position: absolute;
-    background-color: #ddd; }
+    background-color: #DDD; }
   .border:before {
     width: 1px;
     height: 100%;
@@ -53,8 +53,10 @@ body {
   .border.border-lt:after {
     top: 0; }
   .border.border-lt.border-shift:before {
+    height: calc(100% + 1px);
     left: -1px; }
   .border.border-lt.border-shift:after {
+    width: calc(100% + 1px);
     top: -1px; }
   .border.border-l:before {
     left: 0; }

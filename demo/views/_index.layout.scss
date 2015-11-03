@@ -60,8 +60,14 @@ body {
     &:after { top: 0; }
 
     &.border-shift {
-      &:before { left: -$layout-border-width; }
-      &:after { top: -$layout-border-width; }
+      &:before {
+        height: calc(100% + #{$layout-border-width});
+        left: -$layout-border-width;
+      }
+      &:after {
+        width: calc(100% + #{$layout-border-width});
+        top: -$layout-border-width;
+      }
     }
   }
 
