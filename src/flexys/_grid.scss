@@ -81,6 +81,7 @@ $type-end:    nth($type-list, 8);
 // (md)Medium grid: default state
 // =============================================
   .#{$global-prefix}-container {
+    @extend %box-sizing;
     width: $container-width-md;
     margin-left: auto;
     margin-right: auto;

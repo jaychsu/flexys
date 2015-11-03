@@ -7,7 +7,7 @@
 .fx-column,
 .fx-grid, .fx-row > *,
 .fx-column > *,
-.fx-grid > * {
+.fx-grid > *, .fx-container {
   box-sizing: border-box;
   -ms-box-sizing: border-box;
   -moz-box-sizing: border-box;
