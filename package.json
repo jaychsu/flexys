@@ -2,8 +2,10 @@
   "name": "flexys",
   "version": "1.0.2",
   "description": "A Light Grid System base on Flexbox.",
-  "main": "gulpfile.js",
-  "dependencies": {},
+  "main": "src/_flexys.scss",
+  "dependencies": {
+    "sass-flex-mixin": "git+https://github.com/mastastealth/sass-flex-mixin.git"
+  },
   "devDependencies": {
     "browser-sync": "^2.9.11",
     "gulp": "^3.9.0",
@@ -13,9 +15,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.4"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jaychsu/flexys.git"

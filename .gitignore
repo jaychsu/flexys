@@ -1,7 +1,10 @@
 # Dependencies
-bower_components/
 node_modules/
 
 # Compiled file
 **/.sass-cache
 **/*.map
+
+# log
+.log
+*.log

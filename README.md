@@ -18,19 +18,25 @@ To understand how to use Flexys, hit [Demo](http://jaychsu.github.io/flexys/). (
 
 ## Quickstart
 
-1. Install from [Bower](http://bower.io/):
+2. Install from [NPM](https://www.npmjs.com/package/flexys):
+
+    ```
+    npm install --save flexys
+    ```
+
+2. Install from [Bower](https://libraries.io/bower/flexys):
 
     ```
     bower install --save flexys
     ```
 
-2. Develop with...
+3. Develop with...
 
     a. [Sass](http://sass-lang.com/): Import these files to your `main.scss`.
 
     ```
-    @import "../bower_components/sass-flex-mixin/_flexbox.scss";
-    @import "../bower_components/flexys/src/_flexys.scss";
+    @import "/node_modules/sass-flex-mixin/_flexbox.scss";
+    @import "/node_modules/flexys/src/_flexys.scss";
     ```
 
     b. Native CSS:

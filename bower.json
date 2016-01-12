@@ -13,7 +13,6 @@
   "ignore": [
     "demo/",
     "**/.*",
-    "**/*.md",
     "*.json",
     "src/flexys.scss",
     "gulpfile.js",

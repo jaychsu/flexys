@@ -1,0 +1,12 @@
+# Demo Page
+demo/
+src/flexys.scss
+index.html
+
+# Configs
+**/.*
+bower.json
+
+# Development
+gulpfile.js
+*.sublime-*
